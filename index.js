@@ -38,13 +38,13 @@
         }
       }
       function refreshRem(){
-        var width = docEl.getBoundingClientRect().width;
+        var width = docEl.clientWidth;
         if (width / dpr > 540) {
           width = 540 * dpr;
         }
         var rem = width / 10;
         docEl.style.fontSize = rem + 'px';
-        var realitySize = parseInt(window.getComputedStyle(document.documentElement).fontSize);
+        var realitySize = window.getComputedStyle(document.documentElement).fontSize.replace('px', '');
         if (rem !== realitySize) {
           rem = rem * rem / realitySize;
           docEl.style.fontSize = rem + 'px';
